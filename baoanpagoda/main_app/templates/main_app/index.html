@@ -1,0 +1,436 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Ninestars Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+
+  <!-- =======================================================
+  * Template Name: Ninestars
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->run</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+          <a href="index.html">
+          <img src="{% static 'assets/img/Logo.png' %}" style="height: 4.5rem" alt="Logo" data-aos="zoom-in">
+        </a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="#">Trang chủ</a></li>
+
+          <li class="dropdown"><a href="#about"><span>Về chúng tôi</span><i class="bi bi-chevron-down"></i></a>
+
+            <ul>
+
+              {% for aboutUsCategory in aboutUsCategories %}
+              <li><a href="#">{{aboutUsCategory.vn_name}}</a></li>
+              {% endfor %}
+
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#about"><span>Hoạt động</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Phật sự</a></li>
+              <li><a href="#">Các chương trình lễ trong năm</a></li>
+              <li><a href="#">Các khóa tu</a></li>
+              <li><a href="#">Văn học Phật giáo</a></li>
+              <li><a href="#">Phật giáo và Đời sống</a></li>
+              <li><a href="#">Xây dựng kiến thiết</a></li>
+            </ul>
+          </li>
+
+           <li class="dropdown"><a href="#about"><span>Thư viện hình ảnh</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Lễ động thổ xây Chánh điện năm 2018</a></li>
+              <li><a href="#">Lễ khánh thành Chánh điện năm 2020</a></li>
+              <li><a href="#">Tết Nguyên đán năm 2024</a></li>
+              <li><a href="#">Lễ Thượng Nguyên 2024</a></li>
+              <li><a href="#">Lễ Phật Đản 2024</a></li>
+            </ul>
+          </li>
+
+
+
+          <li><a class="nav-link scrollto" href="#portfolio">Quyên góp</a></li>
+          <li><a class="nav-link scrollto" href="#team">Liên lạc</a></li>
+
+        <div class="logo">
+            <a href="index.html">
+            <img src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+          </a>
+        </div>
+          <div class="logo">
+            <a href="index.html">
+            <img src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+          </a>
+        </div>
+
+
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-12 order-1 order-lg-2 hero-img">
+        <div style="position: relative;">
+          <!--
+          <img src="{% static 'assets/img/header-bg.jpg' %}" class="img-fluid" alt="">
+          -->
+          <img src="{{ imagelanding.image.url }}" class="img-fluid" alt="">
+          <h1 class="title"><a class="responsive-text" href="" style="position: absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); color: white">Chùa Báo Ân kính chào</a></h1>
+          <a href="#about"  class="responsive-button" style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%); background-color: #D2691E ">Thông tin chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row justify-content-between">
+          <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
+            <img src="assets/img/chua-bao-an.jpg" class="img-fluid" alt="" data-aos="zoom-in">
+          </div>
+          <div class="col-lg-6 pt-5 pt-lg-0">
+            <h3 data-aos="fade-up">Về chúng tôi</h3>
+            <p data-aos="fade-up" data-aos-delay="100">
+                 Chùa Báo Ân là một trong 4 ngôi chùa Việt tại thành phố Auckland, New Zealand. Đây cũng là nơi để cộng đồng người Việt tại đây có chỗ lui tới lễ Phật và cùng nhau nhớ về nguồn cội.            </p>
+            <div class="row">
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-clock-history"></i>
+                <h4>Lịch sử</h4>
+                <p>Chùa được bắt đầu xây dựng vào năm 2018 và hoàn thành vào năm 2020.</p>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-person"></i>
+                <h4>Trụ trì</h4>
+                <p>Chùa được trụ trì bởi Đại đức Thích Quảng Phúc,.....</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <p>Các hoạt động</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon">
+                  <i class="bi bi-people-fill"></i>
+              </div>
+              <h4 class="title"><a href="">Phật sự</a></h4>
+              <p class="description">Trong thời gian qua, chùa Báo Ân đã thực hiện các Phật sự....</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon">
+                <i class="bx bx-file"></i>
+              </div>
+              <h4 class="title"><a href="">Các chương trình lễ</a></h4>
+              <p class="description">Các chương trình lễ trong năm bao gồm ngày Phật Đản, tết nguyên đán......</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon">
+                <i class="bx bx-tachometer"></i>
+              </div>
+              <h4 class="title"><a href="">Các khóa tu</a></h4>
+              <p class="description">Các khóa tu bao gồm...........................</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon">
+                <i class="bi bi-book"></i>
+              </div>
+              <h4 class="title"><a href="">Văn học Phật Giáo</a></h4>
+              <p class="description">Văn học Phật Giáo........................................................</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <p>Thư viện hình ảnh</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Thư viện ảnh</li>
+              <li data-filter=".filter-card">Thư viện video</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/anh-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/anh-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/anh-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/anh-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/anh-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/anh-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/anh-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/anh-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>Card 2</h4>
+                <p>Card</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+
+<iframe width="410" height="280" src="https://www.youtube.com/embed/62RxpCP9TxQ?si=T8A1eY_30L0qOBxO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Liên hệ</h2>
+          </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>15 Allenby Road, Papatoetoe, Auckland 2025, New Zealand</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+64 9 279 7126</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12748.618212060986!2d174.8693308!3d-36.9822439!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4de5ccd2bc63%3A0xad0f4bba21fd6505!2zQ2jDuWEgQsOhbyDDgm4!5e0!3m2!1sen!2s!4v1695635836972!5m2!1sen!2s" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 footer-contact">
+            <h3>Chùa Báo Ân</h3>
+            <p>
+              15 Allenby Road <br>
+              Papatoetoe, Auckland 2025, <br>
+              New Zealand<br><br>
+              <strong>Phone:</strong> +64 9 279 7126<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-6 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Bao An Pagoda</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
