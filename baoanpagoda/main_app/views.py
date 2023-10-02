@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from . models import ImageLanding, AboutUsCategory
+from . models import ImageLanding
 
 
 # Create your views here.
 def index(request):
     imagelanding = ImageLanding.objects.latest('created_at')
-    aboutUsCategories = AboutUsCategory.objects.all()
-    context = {'imagelanding': imagelanding,
-               'aboutUsCategories': aboutUsCategories}
+    context = {'imagelanding': imagelanding,}
     return render(request, 'main_app/index.html', context=context)
