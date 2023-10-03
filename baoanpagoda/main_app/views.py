@@ -6,6 +6,7 @@ from collections import defaultdict
 # Create your views here.
 def index(request):
     imagelanding = ImageLanding.objects.latest('created_at')
+    about_us_menu = Menu.objects.filter(en_slug='about-us').first()
     menus = Menu.objects.all()
     submenus = SubMenu.objects.all()
 
@@ -21,5 +22,6 @@ def index(request):
     context = {
         'imagelanding': imagelanding,
         'menu_data': menu_data,  # Pass the list of dictionaries to the template
+        'about_us_menu':about_us_menu
     }
     return render(request, 'main_app/index.html', context=context)

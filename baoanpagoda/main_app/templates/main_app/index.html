@@ -111,25 +111,13 @@
       <div class="container">
 
         <div class="row justify-content-between">
-          <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
-            <img src="assets/img/chua-bao-an.jpg" class="img-fluid" alt="" data-aos="zoom-in">
+          <div class="col-lg-6 d-flex align-items-center justify-content-center about-img">
+            <img src="{{ about_us_menu.image.url }}" class="img-fluid" alt="" data-aos="zoom-in">
           </div>
           <div class="col-lg-6 pt-5 pt-lg-0">
-            <h3 data-aos="fade-up">Về chúng tôi</h3>
+            <h3 data-aos="fade-up">{{ about_us_menu.vn_name }}</h3>
             <p data-aos="fade-up" data-aos-delay="100">
-                 Chùa Báo Ân là một trong 4 ngôi chùa Việt tại thành phố Auckland, New Zealand. Đây cũng là nơi để cộng đồng người Việt tại đây có chỗ lui tới lễ Phật và cùng nhau nhớ về nguồn cội.            </p>
-            <div class="row">
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <i class="bi bi-clock-history"></i>
-                <h4>Lịch sử</h4>
-                <p>Chùa được bắt đầu xây dựng vào năm 2018 và hoàn thành vào năm 2020.</p>
-              </div>
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-person"></i>
-                <h4>Trụ trì</h4>
-                <p>Chùa được trụ trì bởi Đại đức Thích Quảng Phúc,.....</p>
-              </div>
-            </div>
+                        {{ about_us_menu.description|linebreaksbr }}</p>
           </div>
         </div>
 

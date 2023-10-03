@@ -31,5 +31,3 @@ class SubMenuAdmin(admin.ModelAdmin):
     }
     list_display = ('en_name', 'vn_name', 'menu')  # Fields to display in the list view
     search_fields = ('en_name', 'vn_name', 'menu')  # Fields to search by in the list view
-
-
