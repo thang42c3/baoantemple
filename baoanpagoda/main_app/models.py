@@ -7,7 +7,7 @@ from django.urls import reverse
 class ImageLanding(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=250)
-    description = models.TextField(null=True)
+    description = models.TextField(blank=True)
     image = models.ImageField(upload_to='imagine/')
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
@@ -40,6 +40,8 @@ class SubMenu(models.Model):
     vn_slug = models.SlugField(max_length=250)
     en_name = models.CharField(max_length=255)
     en_slug = models.SlugField(max_length=250)
+    description = models.TextField(blank=True)
+    image = models.ImageField(upload_to='imagine/', blank=True)
 
     def __str__(self):
         return self.en_name
