@@ -1569,7 +1569,7 @@ section {
 }
  .ps-timeline-sec .container ol.ps-timeline li {
 	 float: left;
-	 width: 25%;
+	 width: 33%;
 	 padding-top: 30px;
 	 position: relative;
 }
@@ -1582,9 +1582,11 @@ section {
 	 border-radius: 50%;
 	 box-shadow: 0 0 0 0px #fff;
 	 text-align: center;
+	 display: flex;
+     align-items: center;
 	 line-height: 50px -10;
 	 color: #df8625;
-	 font-size: 2em;
+	 font-size: 1.1em;
 	 font-style: normal;
 	 position: absolute;
 	 top: -26px;
