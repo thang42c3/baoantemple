@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
+PLACE_TO_RUN = 'AMAZON1'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-qz2%y=1qg3ih_&l#xycf55a1l60bd$&zo&3*8zm$vz)0n+b%r*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-env.eba-vai85jfb.us-west-2.elasticbeanstalk.com', '172.31.23.162', '127.0.0.1:8000',  '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_app',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -117,7 +120,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+if PLACE_TO_RUN == 'AMAZON':
+    STATIC_ROOT = 'static'
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+        '/var/www/static/',
+    ]
+else:
+    STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
 MEDIA_URL = '/media/'
@@ -128,13 +138,23 @@ MEDIA_ROOT = BASE_DIR / 'static/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TINYMCE_DEFAULT_CONFIG = {
-    'height': 300,
-    'width': 600,
-    'menubar': False,
-    'plugins': 'textcolor link code',
-    'toolbar': 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code',
-    'content_css': [
-        'https://example.com/css/custom.css',
-    ],
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_CONFIGS = {
+        'default': {
+        'toolbar': [
+            ['Undo', 'Redo'],
+            ['Format', 'Font', 'FontSize'],
+            ['Bold', 'Italic', 'Underline', 'Strike'],
+            ['TextColor', 'BGColor'],
+            ['NumberedList', 'BulletedList', 'Blockquote'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+            ['Source'],
+        ],
+        'height': 300,
+        'width': 600,
+    },
 }

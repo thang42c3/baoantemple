@@ -1,8 +1,8 @@
 from django.contrib import admin
 # Register your models here.
-
+from django.db import models
 from . models import ImageLanding, Menu, SubMenu
-
+from ckeditor.widgets import CKEditorWidget
 
 @admin.register(ImageLanding)
 class ImageLandingAdmin(admin.ModelAdmin):
@@ -19,6 +19,9 @@ class MenuAdmin(admin.ModelAdmin):
         'vn_slug': ('vn_name',),
         'en_slug': ('en_name',)
     }
+    formfield_overrides = {
+            models.TextField: {'widget': CKEditorWidget()},
+        }
     list_display = ('en_name', 'vn_name')  # Fields to display in the list view
     search_fields = ('en_name', 'vn_name',)  # Fields to search by in the list view
 
@@ -31,3 +34,4 @@ class SubMenuAdmin(admin.ModelAdmin):
     }
     list_display = ('en_name', 'vn_name', 'menu')  # Fields to display in the list view
     search_fields = ('en_name', 'vn_name', 'menu')  # Fields to search by in the list view
+
