@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,12 +6,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Ninestars Bootstrap Template - Index</title>
+  <title>Bao An template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/Logo.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -53,14 +52,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#">Trang chủ</a></li>
+          <li><a class="nav-link scrollto" href="/">Trang chủ</a></li>
           <li class="dropdown"><a href="#about"><span>{{ about_us.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
           <li class="dropdown"><a href="#about"><span>{{ action.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
 
           <li class="dropdown"><a href="#about"><span>Thư viện hình ảnh</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for gallery_categorie in gallery_categories %}
-                <li><a href="#">{{ gallery_categorie.vn_name }}</a></li>
+                <li><a href="/gallery/list_category/{{ gallery_categorie.en_slug }}">{{ gallery_categorie.vn_name }}</a></li>
               {% endfor %}
             </ul>
           <li><a class="nav-link scrollto" href="#portfolio">Quyên góp</a></li>

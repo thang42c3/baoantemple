@@ -16,10 +16,7 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              {% for gallery_categorie in gallery_categories %}
-                <li data-filter=".{{ gallery_categorie.en_slug }}">{{ gallery_categorie.vn_name }}</a></li>
-              {% endfor %}
+                <li data-filter=".{{ category.en_slug }}">{{ category.vn_name }}</a></li>
             </ul>
           </div>
         </div>
@@ -43,7 +40,8 @@
               </div><div class="row">
           {% endif %}
           {% endfor %}
-        <div class="pagination">
+        </div>
+<div class="pagination">
   <span class="step-links">
     {% if image_galleries.has_previous %}
       <a href="?page=1">First</a>
@@ -69,7 +67,7 @@
           </div>
           -->
 
-        </div>
+
 
       </div>
     </section><!-- End Portfolio Section -->
