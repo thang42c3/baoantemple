@@ -1436,10 +1436,9 @@ section {
     }
   }
 
-
 /* Pagination container styling */
 .pagination {
-  text-align: right; /* Align the text to the right */
+  text-align: left; /* Align the text to the right */
   margin-top: 20px;
   padding: 10px;
 }
@@ -1447,7 +1446,7 @@ section {
 /* Pagination button styling */
 .pagination a {
   padding: 8px 16px;
-  background-color: #007bff;
+  background-color: #D2691E;
   color: white;
   text-decoration: none;
   border-radius: 4px;
@@ -1461,7 +1460,7 @@ section {
 
 /* Current page styling */
 .current-page {
-  background-color: #007bff;
+  background-color: #D2691E;
   color: white;
   padding: 8px 16px;
   border-radius: 4px;
@@ -1473,4 +1472,35 @@ section {
   color: #666;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-image {
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+}
+
+.post-content {
+    flex: 2;
+    padding: 10px;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.post-description {
+    margin-top: 10px;
 }

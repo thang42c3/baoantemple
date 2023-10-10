@@ -1,14 +1,23 @@
 from django.shortcuts import render
 from .models import ImageLanding, Menu, SubMenu
-from gallery.models import GalleryCategories
-from collections import defaultdict
-
+from gallery.models import GalleryCategories, ImageGallery, MediaGallery
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
     imagelanding = ImageLanding.objects.latest('created_at')
+    image_gallery_list = ImageGallery.objects.all().order_by('created_at')
+    paginator = Paginator(image_gallery_list, 6)
+    page = request.GET.get('page')
+    image_galleries = paginator.get_page(page)
+
+    media_galleries = MediaGallery.objects.all()
+    gallery_categories = GalleryCategories.objects.all()
     context = {
         'imagelanding': imagelanding,
+        'image_galleries': image_galleries,
+        'media_galleries': media_galleries,
+        'gallery_categories': gallery_categories
     }
     return render(request, 'main_app/index.html', context=context)
 

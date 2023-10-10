@@ -1,0 +1,52 @@
+{% extends "main_app/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <p>{{ category.vn_name }}</p>
+
+   <div class="row">
+        {% for action_list in action_lists %}
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="row" style="height: 350px">
+                <img src="{{ action_list.image.url }}" class="card-img-top" alt="Image" style="max-height: 350px; object-fit: cover;">
+                </div>
+                <div class="row card-body" style="max-height:250px; overflow: hidden">
+                    <h5 class="card-title">{{ action_list.vn_name }}</h5>
+                    <p class="card-text" >{{ action_list.vn_description|safe }}</p>
+                </div>
+                <br>
+                <div>
+                    {% if action_list.pdf_file %}
+                    <a href="" class="btn btn-primary text-right">Read More</a>
+                    <a href="{{ action_list.pdf_file.url }}" class="btn btn-success text-right" download>Download</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if action_lists.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{ action_lists.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current-page">{{ action_lists.number }}</span>
+
+        {% if action_lists.has_next %}
+        <a href="?page={{ action_lists.next_page_number }}">Next</a>
+        <a href="?page={{ action_lists.paginator.num_pages }}">Last</a>
+        {% endif %}
+    </span>
+</div>
+       </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

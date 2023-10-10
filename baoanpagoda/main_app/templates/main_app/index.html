@@ -119,89 +119,55 @@
           <p>Thư viện hình ảnh</p>
         </div>
 
+        <!--
+
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Thư viện ảnh</li>
-              <li data-filter=".filter-card">Thư viện video</li>
+              {% for gallery_categorie in gallery_categories %}
+                <li data-filter=".{{ gallery_categorie.en_slug }}">{{ gallery_categorie.vn_name }}</a></li>
+              {% endfor %}
             </ul>
           </div>
         </div>
+        -->
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+              {% for image_gallery in image_galleries %}
+                <div class="col-lg-4 col-md-6 portfolio-item {{image_gallery.category.en_slug}} ">
+                  <div class="portfolio-wrap">
+                    <img src={{image_gallery.image.url}} class="img-fluid" alt="">
+                    <div class="portfolio-links">
+                      <a href={{image_gallery.image.url}} data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                    </div>
+                    <div class="portfolio-info">
+                      <h4>{{image_gallery.vn_name}}</h4>
+                      <!-- <p>{{image_gallery.vn_description}}</p> -->
+                    </div>
+                  </div>
+                </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/anh-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/anh-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/anh-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/anh-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/anh-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/anh-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/anh-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/anh-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bi bi-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-
-<iframe width="410" height="280" src="https://www.youtube.com/embed/62RxpCP9TxQ?si=T8A1eY_30L0qOBxO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-          </div>
-
-        </div>
-
+          {% if forloop.counter|divisibleby:3 and not forloop.last %}
+              </div><div class="row">
+          {% endif %}
+          {% endfor %}
       </div>
-    </section><!-- End Portfolio Section -->
+<div class="pagination">
+  <span class="step-links">
+    {% if image_galleries.has_previous %}
+      <a href="?page=1#portfolio">First</a>
+      <a href="?page={{ image_galleries.previous_page_number }}#portfolio">Previous</a>
+    {% endif %}
 
+    <span class="current-page">{{ image_galleries.number }}</span>
+
+    {% if image_galleries.has_next %}
+      <a href="?page={{ image_galleries.next_page_number }}#portfolio">Next</a>
+      <a href="?page={{ image_galleries.paginator.num_pages }}#portfolio">Last</a>
+    {% endif %}
+  </span>
+</div>
      <!-- ======= Contact Us Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">

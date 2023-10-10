@@ -33,7 +33,7 @@ class ImageGallery(models.Model):
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
-        return self.en_name
+        return self.vn_name
 
     def get_absolute_vn_url(self):
         return reverse('vn_img_gallery', args=[self.vn_slug])
@@ -54,7 +54,7 @@ class MediaGallery(models.Model):
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
-        return self.en_name
+        return self.vn_name
 
     def get_absolute_vn_url(self):
         return reverse('vn_media_gallery', args=[self.vn_slug])
