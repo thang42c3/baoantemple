@@ -30,8 +30,8 @@ class Action(models.Model):
     en_slug = models.SlugField(max_length=250)
     vn_description = models.TextField(blank=True, null=True)
     en_description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='imagine/')
-    pdf_file = models.FileField(upload_to='pdfs/', null=True)
+    image = models.ImageField(upload_to='imagine/', blank=True)
+    pdf_file = models.FileField(upload_to='pdfs/', blank=True)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):

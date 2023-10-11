@@ -29,7 +29,7 @@ class ImageGallery(models.Model):
     en_slug = models.SlugField(max_length=250)
     vn_description = models.TextField(blank=True, null=True)
     en_description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='imagine/')
+    image = models.ImageField(upload_to='imagine/', blank=True)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):

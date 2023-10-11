@@ -54,6 +54,12 @@
           <li><a class="nav-link scrollto" href="/">Trang chủ</a></li>
           <li class="dropdown"><a href="#about"><span>{{ about_us.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
           <li class="dropdown"><a href="#about"><span>{{ action.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              {% for action_category in action_categories %}
+                <li><a href="/action/{{ action_category.en_slug }}">{{ action_category.vn_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
 
           <li class="dropdown"><a href="#about"><span>Thư viện hình ảnh</span><i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -61,6 +67,7 @@
                 <li><a href="/gallery/list_category/{{ gallery_categorie.en_slug }}">{{ gallery_categorie.vn_name }}</a></li>
               {% endfor %}
             </ul>
+          </li>
           <li><a class="nav-link scrollto" href="#portfolio">Quyên góp</a></li>
           <li><a class="nav-link scrollto" href="#team">Liên lạc</a></li>
 

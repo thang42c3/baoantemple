@@ -16,3 +16,8 @@ def action(request, category_slug=None):
     return render(request, 'actions.html', {'action_lists': action_lists,
                                             'actions_categories': actions_categories,
                                             'category': category})
+
+
+def single_post(request, en_slug=None, category_slug=None):
+    single_post = Action.objects.filter(en_slug=en_slug).first()
+    return render(request, 'post.html', {'single_post': single_post})
