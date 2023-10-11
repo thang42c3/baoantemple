@@ -35,7 +35,9 @@
         <a href="?page={{ action_lists.previous_page_number }}">Previous</a>
         {% endif %}
 
-        <span class="current-page">{{ action_lists.number }}</span>
+        {% if action_lists_count > 4 %}
+            <span class="current-page">{{ action_lists.number }}</span>
+        {% endif %}
 
         {% if action_lists.has_next %}
         <a href="?page={{ action_lists.next_page_number }}">Next</a>

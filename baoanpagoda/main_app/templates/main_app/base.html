@@ -27,6 +27,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+
 
   <!-- =======================================================
   * Template Name: Ninestars
@@ -53,7 +55,14 @@
         <ul>
           <li><a class="nav-link scrollto" href="/">Trang chủ</a></li>
           <li class="dropdown"><a href="#about"><span>{{ about_us.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
-          <li class="dropdown"><a href="#about"><span>{{ action.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
+              <ul>
+              {% for aboutus_category in aboutus_categories %}
+                <li><a href="/aboutus/{{ aboutus_category.en_slug }}">{{ aboutus_category.vn_name }}</a></li>
+              {% endfor %}
+              </ul>
+          </li>
+
+            <li class="dropdown"><a href="#about"><span>{{ action.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for action_category in action_categories %}
                 <li><a href="/action/{{ action_category.en_slug }}">{{ action_category.vn_name }}</a></li>
@@ -61,7 +70,7 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#about"><span>Thư viện hình ảnh</span><i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#portfolio"><span>Thư viện hình ảnh</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for gallery_categorie in gallery_categories %}
                 <li><a href="/gallery/list_category/{{ gallery_categorie.en_slug }}">{{ gallery_categorie.vn_name }}</a></li>
@@ -147,6 +156,9 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 </body>
 
  </html>
