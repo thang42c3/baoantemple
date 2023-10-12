@@ -64,32 +64,55 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#portfolio"><span>Thư viện hình ảnh</span><i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#portfolio"><span>{% trans "Thư viện hình ảnh" %}</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for gallery_categorie in gallery_categories %}
-                <li><a href="/gallery/list_category/{{ gallery_categorie.en_slug }}">{{ gallery_categorie.vn_name }}</a></li>
+                <li>
+                    <a href="/gallery/list_category/{{ gallery_categorie.en_slug }}">
+                        {% if request.LANGUAGE_CODE == 'vi' %}
+                            {{ gallery_categorie.vn_name }}
+                        {% else %}
+                            {{ gallery_categorie.en_name }}
+                        {% endif %}
+                    </a>
+                </li>
               {% endfor %}
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#portfolio">Quyên góp</a></li>
           <li><a class="nav-link scrollto" href="#team">Liên lạc</a></li>
+        <!--
+        <ul class="dropdown-menu" aria-labelledby="mavnarDropdown">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
 
-        <div class="logo">
-           <a href="index.html">
-              {% if request.LANGUAGE_CODE == 'en' %}
-                 <img src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
-              {% else %}
-                 <img src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
-              {% endif %}
-           </a>
-        </div>
-
-
-
+            {% for lang in languages %}
+            <li>
+                <a class="dropdown-item" href="/{{lang.code}}">
+                    {{lang.name_local}}
+                </a>
+            </li>
+            {% endfor %}
         </ul>
+        -->
+            <li>
+               <div class="row">
+                    <div class="col-lg-2">
+                        <a href="javascript:void(0);" onclick="changeLanguage('vi', 'langVietnam')">
+                            <img id="langVietnam" class="selected" src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="javascript:void(0);" onclick="changeLanguage('en', 'langKingdom')">
+                            <img id="langKingdom" src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem; margin-left: 1rem" alt="Logo" data-aos="zoom-in">
+                        </a>
+                    </div>
+                </div>
+            </li>
+         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
   <main id='main'>
@@ -154,4 +177,12 @@
 
 </body>
 
+<script>
+    function changeLanguage(languageCode) {
+        // Set the new language code
+        document.cookie = "django_language=" + languageCode + "; path=/";
+        // Reload the page to apply the language change
+        location.reload();
+    }
+</script>
  </html>

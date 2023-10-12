@@ -4,6 +4,7 @@ from gallery.models import GalleryCategories, ImageGallery, MediaGallery
 from action.models import ActionsCategory, Action
 from aboutus.models import AboutUsCategory, AboutUs
 from django.core.paginator import Paginator
+from django.utils.translation import gettext_lazy as _
 
 # Create your views here.
 def index(request):

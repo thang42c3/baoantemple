@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 USE_I18N = True
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'vi'
 
 LANGUAGES = [
     ('en', _('English')),

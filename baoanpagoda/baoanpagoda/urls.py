@@ -19,15 +19,20 @@ from django.urls import path, include
 from main_app import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
+
 
 urlpatterns = [
     path('', views.index, name="index"),
     path('main_app/', include('main_app.urls')),
-    path('admin/', admin.site.urls),
+    path(_('admin/'), admin.site.urls),
     path('gallery/', include('gallery.urls')),
     path('action/', include('action.urls')),
     path('aboutus/', include('aboutus.urls')),
 ]
+
+urlpatterns += i18n_patterns(path('', views.index, name="index"))
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
