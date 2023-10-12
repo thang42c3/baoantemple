@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,13 +31,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
 
 
-  <!-- =======================================================
-  * Template Name: Ninestars
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->run
 
 </head>
 <body>
@@ -81,14 +75,13 @@
           <li><a class="nav-link scrollto" href="#team">Liên lạc</a></li>
 
         <div class="logo">
-            <a href="index.html">
-            <img src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
-          </a>
-        </div>
-          <div class="logo">
-            <a href="index.html">
-            <img src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
-          </a>
+           <a href="index.html">
+              {% if request.LANGUAGE_CODE == 'en' %}
+                 <img src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+              {% else %}
+                 <img src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+              {% endif %}
+           </a>
         </div>
 
 
