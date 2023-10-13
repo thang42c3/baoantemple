@@ -1,5 +1,7 @@
 {% load static %}
 {% load i18n %}
+{% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +33,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
 
 
-
 </head>
 <body>
 
@@ -47,19 +48,23 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="/">Trang chủ</a></li>
-          <li class="dropdown"><a href="#about"><span>{{ about_us.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="/">{% trans "Trang chủ" %}</a></li>
+          <li class="dropdown"><a href="#about"><span>{{about_us|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
               <ul>
               {% for aboutus_category in aboutus_categories %}
-                <li><a href="/aboutus/{{ aboutus_category.en_slug }}">{{ aboutus_category.vn_name }}</a></li>
+                <li><a href="/aboutus/{{ aboutus_category.en_slug }}">
+                    {{ aboutus_category|get_name_for_language:request.LANGUAGE_CODE }}
+                </a></li>
               {% endfor %}
               </ul>
           </li>
 
-            <li class="dropdown"><a href="#about"><span>{{ action.vn_name }}</span><i class="bi bi-chevron-down"></i></a>
+            <li class="dropdown"><a href="#about"><span>{{action|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for action_category in action_categories %}
-                <li><a href="/action/{{ action_category.en_slug }}">{{ action_category.vn_name }}</a></li>
+                <li><a href="/action/{{ action_category.en_slug }}">
+                    {{ action_category|get_name_for_language:request.LANGUAGE_CODE }}
+                </a></li>
               {% endfor %}
             </ul>
           </li>
@@ -69,18 +74,14 @@
               {% for gallery_categorie in gallery_categories %}
                 <li>
                     <a href="/gallery/list_category/{{ gallery_categorie.en_slug }}">
-                        {% if request.LANGUAGE_CODE == 'vi' %}
-                            {{ gallery_categorie.vn_name }}
-                        {% else %}
-                            {{ gallery_categorie.en_name }}
-                        {% endif %}
+                        {{ gallery_categorie|get_name_for_language:request.LANGUAGE_CODE }}
                     </a>
                 </li>
               {% endfor %}
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#portfolio">Quyên góp</a></li>
-          <li><a class="nav-link scrollto" href="#team">Liên lạc</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">{% trans "Quyên góp"%}</a></li>
+          <li><a class="nav-link scrollto" href="#team">{% trans "Liên lạc" %}</a></li>
         <!--
         <ul class="dropdown-menu" aria-labelledby="mavnarDropdown">
             {% get_current_language as LANGUAGE_CODE %}
@@ -172,8 +173,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 
 </body>
 

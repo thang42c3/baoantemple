@@ -31,3 +31,18 @@ msgstr "About Us"
 
 msgid "Thư viện hình ảnh"
 msgstr "Image Gallery"
+
+msgid "Trang chủ"
+msgstr "Home"
+
+msgid "Quyên góp"
+msgstr "Donation"
+
+msgid "Liên lạc"
+msgstr "Contact"
+
+msgid "Thông tin chi tiết"
+msgstr "For more details"
+
+msgid "Chùa Báo Ân kính chào"
+msgstr "Welcome to Bao An temple"
