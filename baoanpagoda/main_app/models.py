@@ -53,4 +53,3 @@ class SubMenu(models.Model):
 
     def get_absolute_en_url(self):
         return reverse('en_about_us_category', args=[self.en_slug])
-
