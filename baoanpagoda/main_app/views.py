@@ -5,7 +5,6 @@ from action.models import ActionsCategory, Action
 from aboutus.models import AboutUsCategory, AboutUs
 from django.core.paginator import Paginator
 from django.utils.translation import gettext_lazy as _
-from .forms import ContactForm
 
 # Create your views here.
 def index(request):
