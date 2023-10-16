@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from .models import ImageLanding, Menu, SubMenu
+from django.shortcuts import render, redirect
+from .models import ImageLanding, Menu, SubMenu, ContactMessage
 from gallery.models import GalleryCategories, ImageGallery, MediaGallery
 from action.models import ActionsCategory, Action
 from aboutus.models import AboutUsCategory, AboutUs
 from django.core.paginator import Paginator
-from django.utils.translation import gettext_lazy as _
+from .forms import ContactForm
+from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
@@ -23,6 +24,7 @@ def index(request):
         'media_galleries': media_galleries,
         'gallery_categories': gallery_categories,
     }
+
     return render(request, 'main_app/index.html', context=context)
 
 
@@ -52,3 +54,17 @@ def menu_views(request):
 
     }
     return context
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        # Create and save a ContactMessage object
+        contact_message = ContactMessage(name=name, email=email, subject=subject, message=message)
+        contact_message.save()
+        return HttpResponse("Form submitted successfully")
+    return render(request, 'main_app/index.html')
+

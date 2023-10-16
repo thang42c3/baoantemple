@@ -177,24 +177,25 @@
 
           </div>
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
+                {% csrf_token %}
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">{% trans "Tên" %}</label>
                   <input type="text" name="name" class="form-control" id="name" placeholder="{% trans 'Tên' %}" required>
                 </div>
                 <div class="form-group col-md-6 mt-3 mt-md-0">
-                  <label for="name">{% trans "Địa chỉ email" %}</label>
+                  <label for="email">{% trans "Địa chỉ email" %}</label>
                   <input type="email" class="form-control" name="email" id="email" placeholder="{% trans 'Địa chỉ email' %}" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <label for="name">{% trans "Tiêu đề" %}</label>
+                <label for="subject">{% trans "Tiêu đề" %}</label>
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="{% trans 'Tiêu đề' %}" required>
               </div>
               <div class="form-group mt-3">
-                <label for="name">{% trans "Nội dung" %}</label>
-                <textarea class="form-control" name="{% trans 'Nội dung' %}" rows="10" required></textarea>
+                <label for="message">{% trans "Nội dung" %}</label>
+                <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
