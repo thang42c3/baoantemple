@@ -4,8 +4,10 @@
 
 {% block content %}
 
+{% load custom_filters %}
+
 <div class="container">
-    <div class="row text-center fs-1 text-uppercase"><p>{{ category.vn_name }}</p> </div>
+    <div class="row text-center fs-1 text-uppercase"><p>{{ category|get_name_for_language:request.LANGUAGE_CODE }}</p> </div>
 
    <div class="row">
         {% for action_list in action_lists %}
@@ -15,8 +17,8 @@
                 <img src="{{ action_list.image.url }}" class="card-img-top" alt="Image" style="max-height: 350px; object-fit: cover;">
                 </div>
                 <div class="row card-body" style="max-height:250px; overflow: hidden">
-                    <h5 class="card-title text-center fs-3 font-monospace">{{ action_list.vn_name }}</h5>
-                    <p class="card-text" >{{ action_list.vn_description|safe }}</p>
+                    <h5 class="card-title text-center fs-3 font-monospace">{{ action_list|get_name_for_language:request.LANGUAGE_CODE }}</h5>
+                    <p class="card-text" >{{ action_list|get_description_for_language:request.LANGUAGE_CODE|safe }}</p>
                 </div>
                 <br>
                 <div>
@@ -28,24 +30,24 @@
             </div>
         </div>
         {% endfor %}
-<div class="pagination">
-    <span class="step-links">
-        {% if action_lists.has_previous %}
-        <a href="?page=1">First</a>
-        <a href="?page={{ action_lists.previous_page_number }}">Previous</a>
-        {% endif %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if action_lists.has_previous %}
+                <a href="?page=1">First</a>
+                <a href="?page={{ action_lists.previous_page_number }}">Previous</a>
+                {% endif %}
 
-        {% if action_lists_count > 4 %}
-            <span class="current-page">{{ action_lists.number }}</span>
-        {% endif %}
+                {% if action_lists_count > 4 %}
+                    <span class="current-page">{{ action_lists.number }}</span>
+                {% endif %}
 
-        {% if action_lists.has_next %}
-        <a href="?page={{ action_lists.next_page_number }}">Next</a>
-        <a href="?page={{ action_lists.paginator.num_pages }}">Last</a>
-        {% endif %}
-    </span>
-</div>
-       </div>
+                {% if action_lists.has_next %}
+                <a href="?page={{ action_lists.next_page_number }}">Next</a>
+                <a href="?page={{ action_lists.paginator.num_pages }}">Last</a>
+                {% endif %}
+            </span>
+        </div>
+   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

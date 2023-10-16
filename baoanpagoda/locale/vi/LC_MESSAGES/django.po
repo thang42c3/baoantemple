@@ -50,3 +50,42 @@ msgstr "Thông tin chi tiết"
 
 msgid "Welcome to Bao An temple"
 msgstr "Chùa Báo Ân kính chào"
+
+msgid "Location"
+msgstr "Vị trí"
+
+msgid "Call"
+msgstr "Điện thoại"
+
+msgid "Your Name"
+msgstr "Tên"
+
+msgid "Your Email"
+msgstr "Địa chỉ email"
+
+msgid "Subject"
+msgstr "Tiêu đề"
+
+msgid "Message"
+msgstr "Nội dung"
+
+msgid "Send Message"
+msgstr "Gửi"
+
+msgid "Actions"
+msgstr "Các hoạt động"
+
+msgid "Bao An temple"
+msgstr "Chùa Bảo Ân"
+
+msgid "Previous"
+msgstr "Trước"
+
+msgid "Next"
+msgstr "Tiếp"
+
+msgid "Last"
+msgstr "Cuối"
+
+msgid "First"
+msgstr "Đầu"
