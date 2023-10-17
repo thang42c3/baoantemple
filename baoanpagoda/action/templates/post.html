@@ -5,6 +5,12 @@
 {% block content %}
 
 <div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Trang chủ" %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{category|get_name_for_language:request.LANGUAGE_CODE}}</li>
+        </ol>
+    </nav>
     <div class="row text-center fs-3 text-uppercase"><p>{{ single_post.vn_name }}</p></div>
 
    <div class="row">

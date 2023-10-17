@@ -2,11 +2,20 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% block content %}
 
 {% load custom_filters %}
 
 <div class="container">
+    <br>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Trang chủ" %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{category|get_name_for_language:request.LANGUAGE_CODE}}</li>
+        </ol>
+    </nav>
     <div class="row text-center fs-1 text-uppercase"><p>{{ category|get_name_for_language:request.LANGUAGE_CODE }}</p> </div>
 
    <div class="row">
@@ -21,11 +30,11 @@
                     <p class="card-text" >{{ action_list|get_description_for_language:request.LANGUAGE_CODE|safe }}</p>
                 </div>
                 <br>
-                <div>
+                <div class="justify-content-end">
                     {% if action_list.pdf_file %}
-                    <a href="{{action_list.en_slug}}" class="btn btn-primary text-right">Read More</a>
-                    <a href="{{ action_list.pdf_file.url }}" class="btn btn-success text-right" download>Download</a>
+                    <a href="{{ action_list.pdf_file.url }}" class="btn btn-success" >{% trans "Tải về" %}</a>
                     {% endif %}
+                    <a href="{{ action_list.en_slug }}" class="btn btn-primary">{% trans "Chi tiết" %}</a>
                 </div>
             </div>
         </div>
@@ -33,8 +42,8 @@
         <div class="pagination">
             <span class="step-links">
                 {% if action_lists.has_previous %}
-                <a href="?page=1">First</a>
-                <a href="?page={{ action_lists.previous_page_number }}">Previous</a>
+                <a href="?page=1">{% trans "Đầu" %}</a>
+                <a href="?page={{ action_lists.previous_page_number }}">{% trans "Trước" %}</a>
                 {% endif %}
 
                 {% if action_lists_count > 4 %}
@@ -42,15 +51,12 @@
                 {% endif %}
 
                 {% if action_lists.has_next %}
-                <a href="?page={{ action_lists.next_page_number }}">Next</a>
-                <a href="?page={{ action_lists.paginator.num_pages }}">Last</a>
+                <a href="?page={{ action_lists.next_page_number }}">{% trans "Tiếp" %</a>
+                <a href="?page={{ action_lists.paginator.num_pages }}">{% trans "Cuối" %}</a>
                 {% endif %}
             </span>
         </div>
    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 {% endblock %}

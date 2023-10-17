@@ -65,6 +65,6 @@ def contact_view(request):
         # Create and save a ContactMessage object
         contact_message = ContactMessage(name=name, email=email, subject=subject, message=message)
         contact_message.save()
-        return HttpResponse("Form submitted successfully")
-    return render(request, 'main_app/index.html')
+        return render(request, 'main_app/success.html')
+    return redirect('index')
 
