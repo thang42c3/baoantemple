@@ -24,4 +24,6 @@ def action(request, category_slug=None):
 
 def single_post(request, en_slug=None, category_slug=None):
     single_post = Action.objects.filter(en_slug=en_slug).first()
-    return render(request, 'post.html', {'single_post': single_post})
+    category = get_object_or_404(ActionsCategory, en_slug=category_slug)
+    return render(request, 'post.html', {'single_post': single_post,
+                                         'category': category})

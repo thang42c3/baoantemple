@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ImageLanding, Menu, SubMenu, ContactMessage
+from .models import ImageLanding, Menu, ContactMessage
 from gallery.models import GalleryCategories, ImageGallery, MediaGallery
 from action.models import ActionsCategory, Action
 from aboutus.models import AboutUsCategory, AboutUs

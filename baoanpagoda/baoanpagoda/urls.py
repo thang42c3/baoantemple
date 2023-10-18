@@ -30,6 +30,7 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('action/', include('action.urls')),
     path('aboutus/', include('aboutus.urls')),
+    path('donation/', include('donation.urls')),
 ]
 
 urlpatterns += i18n_patterns(path('', views.index, name="index"))

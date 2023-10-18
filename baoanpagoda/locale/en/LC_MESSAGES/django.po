@@ -85,3 +85,9 @@ msgstr "Last"
 
 msgid "Đầu"
 msgstr "First"
+
+msgid "Ngôn ngữ"
+msgstr "Language"
+
+msgid "Chùa Báo Ân"
+msgstr "Bao An Temple"

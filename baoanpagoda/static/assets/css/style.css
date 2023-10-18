@@ -1430,11 +1430,13 @@ section {
     }
   }
 
-    @media (max-width: 768px) {
+ @media (max-width: 768px) {
     .responsive-text {
         display: none
     }
   }
+
+
 
 /* Pagination container styling */
 .pagination {
@@ -1505,3 +1507,14 @@ section {
     margin-top: 10px;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .responsive-text {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-item {
+        display: none;
+    }
+}

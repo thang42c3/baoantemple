@@ -1,7 +1,7 @@
 from django.contrib import admin
 # Register your models here.
 from django.db import models
-from . models import ImageLanding, Menu, SubMenu, ContactMessage
+from . models import ImageLanding, Menu, ContactMessage
 from ckeditor.widgets import CKEditorWidget
 
 @admin.register(ImageLanding)
@@ -24,16 +24,6 @@ class MenuAdmin(admin.ModelAdmin):
         }
     list_display = ('en_name', 'vn_name')  # Fields to display in the list view
     search_fields = ('en_name', 'vn_name',)  # Fields to search by in the list view
-
-
-@admin.register(SubMenu)
-class SubMenuAdmin(admin.ModelAdmin):
-    prepopulated_fields = {
-        'vn_slug': ('vn_name',),
-        'en_slug': ('en_name',)
-    }
-    list_display = ('en_name', 'vn_name', 'menu')  # Fields to display in the list view
-    search_fields = ('en_name', 'vn_name', 'menu')  # Fields to search by in the list view
 
 
 @admin.register(ContactMessage)

@@ -30,6 +30,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/substyle.css' %}" rel="stylesheet">
 
 </head>
 <body>
@@ -57,7 +58,7 @@
               </ul>
           </li>
 
-            <li class="dropdown"><a href="#about"><span>{{action|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
+            <li class="dropdown"><a href="#services"><span>{{action|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for action_category in action_categories %}
                 <li><a href="/action/{{ action_category.en_slug }}">
@@ -78,7 +79,7 @@
               {% endfor %}
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#portfolio">{% trans "Quyên góp"%}</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'donation' %}">{% trans "Quyên góp"%}</a></li>
           <li><a class="nav-link scrollto" href="/#contact">{% trans "Liên lạc" %}</a></li>
         <!--
         <ul class="dropdown-menu" aria-labelledby="mavnarDropdown">
@@ -95,19 +96,34 @@
             {% endfor %}
         </ul>
         -->
-            <li>
-               <div class="row">
+            <li class="dropdown language-md-sm"><a><span>{% trans "Ngôn ngữ" %}</span><i class="bi bi-chevron-down"></i></a>
+               <ul>
+                <li>
+                    <a href="javascript:void(0);" onclick="changeLanguage('vi', 'langVietnam')">
+                        <img id="langVietnam" class="selected" src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+                    </a>
+               </li>
+               <li>
+                    <a href="javascript:void(0);" onclick="changeLanguage('en', 'langKingdom')">
+                        <img id="langKingdom" src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+                    </a>
+               </li>
+              </ul>
+            </li>
+
+            <li class="language-lg">
+               <div class="row" >
                     <div class="col-lg-2">
                         <a href="javascript:void(0);" onclick="changeLanguage('vi', 'langVietnam')">
-                            <img id="langVietnam" class="selected" src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
+                            <img class="selected" src="{% static 'assets/img/lang-vietnam.png' %}" style="height: 1rem" alt="Logo" data-aos="zoom-in">
                         </a>
                     </div>
                     <div class="col-lg-2">
                         <a href="javascript:void(0);" onclick="changeLanguage('en', 'langKingdom')">
-                            <img id="langKingdom" src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem; margin-left: 1rem" alt="Logo" data-aos="zoom-in">
+                            <img src="{% static 'assets/img/lang-kingdom.png' %}" style="height: 1rem; margin-left: 1rem" alt="Logo" data-aos="zoom-in">
                         </a>
                     </div>
-                </div>
+               </div>
             </li>
          </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -121,18 +137,19 @@
   </main>
 
   <!-- ======= Footer ======= -->
+  <hr>
  <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
 
           <div class="col-lg-6 col-md-6 footer-contact">
-            <h3>Chùa Báo Ân</h3>
+            <h3>{% trans "Chùa Báo Ân" %}</h3>
             <p>
               15 Allenby Road <br>
               Papatoetoe, Auckland 2025, <br>
               New Zealand<br><br>
-              <strong>Phone:</strong> +64 9 279 7126<br>
+              <strong>{% trans "Điện thoại" %}:</strong> +64 9 279 7126<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
           </div>

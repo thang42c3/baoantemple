@@ -10,7 +10,7 @@
 
 <div class="container">
     <br>
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb nav-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Trang chủ" %}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{category|get_name_for_language:request.LANGUAGE_CODE}}</li>
@@ -51,7 +51,7 @@
                 {% endif %}
 
                 {% if action_lists.has_next %}
-                <a href="?page={{ action_lists.next_page_number }}">{% trans "Tiếp" %</a>
+                <a href="?page={{ action_lists.next_page_number }}">{% trans "Tiếp" %}</a>
                 <a href="?page={{ action_lists.paginator.num_pages }}">{% trans "Cuối" %}</a>
                 {% endif %}
             </span>
